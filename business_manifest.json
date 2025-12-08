@@ -1,0 +1,37 @@
+{
+  "name": "EcoInsights Hub",
+  "type": "content",
+  "description": "A subscription-based platform providing personalized climate tech insights and actionable advice for small businesses aiming to improve their environmental impact.",
+  "generated_at": "2025-12-07T05:12:41.486967",
+  "components": [
+    "spec",
+    "build",
+    "deploy",
+    "spec_requirements",
+    "spec_architecture",
+    "build_code",
+    "build_test"
+  ],
+  "files_written": [
+    "businesses\\production_test\\content\\ecoinsights-hub\\src\\components\\component.tsx",
+    "businesses\\production_test\\content\\ecoinsights-hub\\__tests__\\component.test.tsx",
+    "businesses\\production_test\\content\\ecoinsights-hub\\vercel.json",
+    "businesses\\production_test\\content\\ecoinsights-hub\\src\\components\\requirements.tsx",
+    "businesses\\production_test\\content\\ecoinsights-hub\\__tests__\\architecture.test.tsx",
+    "businesses\\production_test\\content\\ecoinsights-hub\\vercel.json",
+    "businesses\\production_test\\content\\ecoinsights-hub\\src\\components\\test.tsx",
+    "businesses\\production_test\\content\\ecoinsights-hub\\src\\app\\layout.tsx",
+    "businesses\\production_test\\content\\ecoinsights-hub\\src\\app\\globals.css",
+    "businesses\\production_test\\content\\ecoinsights-hub\\src\\app\\page.tsx"
+  ],
+  "tasks_completed": 7,
+  "tasks_failed": 0,
+  "ap2_estimated_cost": 45.2,
+  "ap2_estimated_tokens": 19500,
+  "ap2_generation_approval": null,
+  "infrastructure_approvals": {
+    "analytics": null,
+    "database": null,
+    "storage": null
+  }
+}

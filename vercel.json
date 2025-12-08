@@ -1,0 +1,169 @@
+interface BuildCommand {
+  command: string;
+  output?: string;
+}
+
+interface EnvVariables {
+  [key: string]: string | undefined;
+}
+
+interface RedirectRule {
+  source: string;
+  destination: string;
+  permanent?: boolean;
+}
+
+interface HeaderPolicy {
+  source: string;
+  headers: Array<{ key: string; value: string }>;
+}
+
+interface CacheStrategy {
+  urlPattern: string;
+  headers: { [key: string]: string };
+}
+
+interface FrameworkSettings {
+  vercel?: Record<string, any>;
+  netlify?: Record<string, any>;
+}
+
+interface DeployConfig {
+  build: BuildCommand;
+  env: EnvVariables;
+  redirects?: Array<RedirectRule>;
+  headers?: Array<HeaderPolicy>;
+  cacheStrategies?: Array<CacheStrategy>;
+  frameworkSettings?: FrameworkSettings;
+}
+
+export const deployConfig: DeployConfig = {
+  build: {
+    command: "next build",
+    output: ".next"
+  },
+  env: {
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+    API_KEY: process.env.API_KEY
+  },
+  redirects: [
+    {
+      source: "/old-path/:slug",
+      destination: "/new-path/:slug",
+      permanent: true
+    }
+  ],
+  headers: [
+    {
+      source: "/*",
+      headers: [
+        { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains" },
+        { key: "X-Content-Type-Options", value: "nosniff" },
+        { key: "X-Frame-Options", value: "DENY" }
+      ]
+    }
+  ],
+  cacheStrategies: [
+    {
+      urlPattern: "/api/*",
+      headers: {
+        "Cache-Control": "s-maxage=1, stale-while-revalidate"
+      }
+    },
+    {
+      urlPattern: "/*.next/font/*",
+      headers: {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    }
+  ],
+  frameworkSettings: {
+    vercel: {},
+    netlify: {}
+  }
+};
+
+interface BuildCommand {
+  command: string;
+  output?: string;
+}
+
+interface EnvVariables {
+  [key: string]: string | undefined;
+}
+
+interface RedirectRule {
+  source: string;
+  destination: string;
+  permanent?: boolean;
+}
+
+interface HeaderPolicy {
+  source: string;
+  headers: Array<{ key: string; value: string }>;
+}
+
+interface CacheStrategy {
+  urlPattern: string;
+  headers: { [key: string]: string };
+}
+
+interface FrameworkSettings {
+  vercel?: Record<string, any>;
+  netlify?: Record<string, any>;
+}
+
+interface DeployConfig {
+  build: BuildCommand;
+  env: EnvVariables;
+  redirects?: Array<RedirectRule>;
+  headers?: Array<HeaderPolicy>;
+  cacheStrategies?: Array<CacheStrategy>;
+  frameworkSettings?: FrameworkSettings;
+}
+
+export const deployConfig: DeployConfig = {
+  build: {
+    command: "next build",
+    output: ".next"
+  },
+  env: {
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+    API_KEY: process.env.API_KEY
+  },
+  redirects: [
+    {
+      source: "/old-path/:slug",
+      destination: "/new-path/:slug",
+      permanent: true
+    }
+  ],
+  headers: [
+    {
+      source: "/*",
+      headers: [
+        { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains" },
+        { key: "X-Content-Type-Options", value: "nosniff" },
+        { key: "X-Frame-Options", value: "DENY" }
+      ]
+    }
+  ],
+  cacheStrategies: [
+    {
+      urlPattern: "/api/*",
+      headers: {
+        "Cache-Control": "s-maxage=1, stale-while-revalidate"
+      }
+    },
+    {
+      urlPattern: "/*.next/font/*",
+      headers: {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    }
+  ],
+  frameworkSettings: {
+    vercel: {},
+    netlify: {}
+  }
+};
